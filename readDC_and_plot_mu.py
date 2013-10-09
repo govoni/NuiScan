@@ -86,13 +86,13 @@ def lookAtSystematics (datacardname) :
         if len (elements) == 0 : continue
         
         filename = thepath + 'tempo.remove.' + str (it) + '.' + nametag
-        f = open(filename, 'w')
-        for linea in header: f.write (linea + '\n')
-        for it1 in range (len (systematics)) :
-            if (it1 == it) : continue
-            if len (systematics[it1].split ()) == 0 : continue
-            f.write (systematics[it1] + '\n')
-        f.close ()
+        #f = open(filename, 'w')
+        #for linea in header: f.write (linea + '\n')
+        #for it1 in range (len (systematics)) :
+            #if (it1 == it) : continue
+            #if len (systematics[it1].split ()) == 0 : continue
+            #f.write (systematics[it1] + '\n')
+        #f.close ()
 
         thisLimit = getMuError (filename)
         removingLimits[systematics[it].split ()[0]] = thisLimit
@@ -101,9 +101,9 @@ def lookAtSystematics (datacardname) :
     # ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- 
     
     filename = thepath + 'tempo.stats.' + str (0.) + '.txt'
-    f = open(filename, 'w')
-    for linea in header: f.write (linea + '\n')
-    f.close ()
+    #f = open(filename, 'w')
+    #for linea in header: f.write (linea + '\n')
+    #f.close ()
     statsLimit = getMuError (filename)
 
     addingLimits = {}
@@ -117,10 +117,10 @@ def lookAtSystematics (datacardname) :
         if len (elements) == 0 : continue
         
         filename = thepath + 'tempo.add.' + str (it) + '.' +  nametag
-        f = open(filename, 'w')
-        for linea in header: f.write (linea + '\n')
-        f.write (systematics[it] + '\n')
-        f.close ()
+        #f = open(filename, 'w')
+        #for linea in header: f.write (linea + '\n')
+        #f.write (systematics[it] + '\n')
+        #f.close ()
         
         thisLimit = getMuError (filename)
         addingLimits[systematics[it].split ()[0]] = thisLimit
@@ -216,8 +216,8 @@ def lookAtSystematics (datacardname) :
     h_sorted_adding.Write ()
     outFile.Close ()
     
-    clean (thepath + 'tempo') 
-    clean ('roostats') 
+    #clean (thepath + 'tempo') 
+    #clean ('roostats') 
 
 
 # ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
@@ -231,11 +231,11 @@ if __name__ == '__main__':
         exit (1)
         
     folderName = sys.argv[1].split ('/')[-1] + '_copy'
-    result = getstatusoutput ('rm -rf ' + folderName)
-    if result[0] == 0 : print 'NB folder ' + folderName + ' cleaned, being replaced'
+    #result = getstatusoutput ('rm -rf ' + folderName)
+    #if result[0] == 0 : print 'NB folder ' + folderName + ' cleaned, being replaced'
 
     currentFolder = getstatusoutput ('pwd')[1]
-    getstatusoutput ('cp -r ' + sys.argv[1] + ' ./' + folderName)
+    #getstatusoutput ('cp -r ' + sys.argv[1] + ' ./' + folderName)
    
     listOfDatacards = []
     for elem in getstatusoutput ('ls ' + str (folderName) + ' | grep txt')[1].split ('\n'):
