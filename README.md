@@ -38,6 +38,10 @@ run the readDC.py
    python ./readDC.py /afs/cern.ch/user/g/govoni/work/HWW/limits/datacards/hww2l2v/125
 
    python readDC_and_submit.py datacards
+   python readDC_and_plot.py datacards
+
+   python readDC_and_submit_mu.py datacards
+   python readDC_and_plot_mu.py datacards
 
 
 how to format this file
