@@ -22,6 +22,10 @@ how to run the script
 --------------
 
 
+how to format this file
+--------------
+
+
 *This will be Italic*
 
 **This will be Bold**
