@@ -45,7 +45,7 @@ def runLimitCalc (filename) :
     os.system("chmod +x "+filenameBash)
 
     print "bsub -q 8nm "+filenameBash
-    #os.system("bsub -q 8nm "+filenameBash)
+    os.system("bsub -q 8nm "+filenameBash)
 
 
 # ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
