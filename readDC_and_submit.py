@@ -27,9 +27,12 @@ def runLimitCalc (filename) :
 
     f = open (filenameBash, 'w')
     f.write ("#/bash/sh \n")
-    f.write ("cd ../CMSSW_6_2_0_pre3/src/ \n")
+    os.getcwd()
+    f.write ("cd "+os.getcwd()+"\n")
+    f.write ("cd CMSSW_6_2_0_pre3/src/ \n")
     f.write ("eval `scramv1 runtime -sh` \n")
     f.write ("cd - \n")
+    f.write ("cd /tmp/ \n")
     f.write (' '.join(argslist))
     f.write("\n")
     os.getcwd()
@@ -39,6 +42,9 @@ def runLimitCalc (filename) :
 
     f.close ()
 
+    os.system("chmod +x "+filenameBash)
+
+    print "bsub -q 8nm "+filenameBash
     #os.system("bsub -q 8nm "+filenameBash)
 
 
@@ -113,7 +119,7 @@ def lookAtSystematics (datacardname) :
         syslist.append (systematics[it].split ()[0])
         if len (elements) == 0 : continue
 
-        filename = thepath + 'tempo.remove.' + str (it) + '.' + nametag
+        filename = thepath + 'tempo.remove.' + str (it) + '.' + systematics[it].split ()[0] + '.' + nametag
         f = open(filename, 'w')
         for linea in header: f.write (linea + '\n')
         for it1 in range (len (systematics)) :
@@ -140,7 +146,7 @@ def lookAtSystematics (datacardname) :
         elements = systematics[it].split ()
         if len (elements) == 0 : continue
 
-        filename = thepath + 'tempo.add.' + str (it) + '.' +  nametag
+        filename = thepath + 'tempo.add.' + str (it) + '.' + systematics[it].split ()[0] + "." +  nametag
         f = open(filename, 'w')
         for linea in header: f.write (linea + '\n')
         f.write (systematics[it] + '\n')
