@@ -8,6 +8,7 @@ Run the combine on datacards
 How to install the environment
 --------------
 
+    export SCRAM_ARCH=slc5_amd64_gcc472
     setenv SCRAM_ARCH slc5_amd64_gcc472
     cmsrel CMSSW_6_2_0_pre3
     cd CMSSW_6_2_0_pre3/src
@@ -16,7 +17,8 @@ How to install the environment
     cd HiggsAnalysis/CombinedLimit
     git pull origin master
     git checkout V03-05-00
-    scramv1 b
+    scramv1 b -j 4
+    cd ../../
 
 how to run the script
 --------------
@@ -34,7 +36,9 @@ load the python and CMSSW settings to have the environment
 run the readDC.py
 
    python ./readDC.py /afs/cern.ch/user/g/govoni/work/HWW/limits/datacards/hww2l2v/125
-   
+
+   python readDC_and_submit.py datacards
+
 
 how to format this file
 --------------
