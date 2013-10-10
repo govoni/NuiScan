@@ -25,7 +25,7 @@ how to run the script
 
 get a folder with datacards in:
 
-   svn co svn+ssh://svn.cern.ch/reps/cmshcg/trunk/summer2013/searches/hww2l2v
+    svn co svn+ssh://svn.cern.ch/reps/cmshcg/trunk/summer2013/searches/hww2l2v
 
 load the python and CMSSW settings to have the environment
 
@@ -35,24 +35,12 @@ load the python and CMSSW settings to have the environment
 
 run the readDC.py
 
-   python ./readDC.py /afs/cern.ch/user/g/govoni/work/HWW/limits/datacards/hww2l2v/125
+    python ./readDC.py /afs/cern.ch/user/g/govoni/work/HWW/limits/datacards/hww2l2v/125
 
-   ## python readDC_and_submit.py datacards
-   python readDC_and_plot.py datacards
+    python readDC_and_submit.py datacards
+    python readDC_and_plot.py datacards
 
-   ## python readDC_and_submit_mu.py datacards
-   python readDC_and_plot_mu.py datacards
-
-
-how to format this file
---------------
+    python readDC_and_submit_mu.py datacards
+    python readDC_and_plot_mu.py datacards
 
 
-*This will be Italic*
-
-**This will be Bold**
-
-- This will be a list item
-- This will be a list item
-
-    Add a indent and this will end up as code
