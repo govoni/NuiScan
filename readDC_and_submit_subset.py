@@ -125,7 +125,7 @@ def lookAtSystematics (datacardname,removeNuis,addNuis) :
 # ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- 
 
     if len(addNuis) != 0 :
-      filename = thepath + 'tempo.only.subset.' + nametag
+      filename = thepath + 'tempo.subset.' + nametag
 
       # expand nuisance list to deal with possible wildcards, e.g. *,?
       expandedAddNuis = []

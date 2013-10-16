@@ -51,6 +51,8 @@ def lookAtSystematics (datacardname) :
     # ---- ---- ---- ---- ---- ---- ---- ----
 
     print 'Opening original input datacard: ', datacardname
+    nametag = datacardname.split ('/')[-1].replace ('.txt', '')
+    thepath = datacardname.replace (nametag + '.txt', '')
 
     Results = {}
     syslist = []
@@ -76,8 +78,8 @@ def lookAtSystematics (datacardname) :
     Results["STATISTICAL"] = statsLimit
 
     print "**********************************"
-    for kind,value in Results :
-        print " > ",kind," = ",value
+    for kind in Results :
+        print " > ",kind," = ",Results[kind]
     print "**********************************"
 
 # ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
@@ -90,12 +92,12 @@ if __name__ == '__main__':
         print 'input datacard folder missing\n'
         exit (1)
 
-    folderName = sys.argv[1].split ('/')[-1] + '_copy_mu__subset'
+    folderName = sys.argv[1].split ('/')[-1] + '_copy_mu_subset'
 
     currentFolder = getstatusoutput ('pwd')[1]
 
     listOfDatacards = []
-    for elem in getstatusoutput ('ls ' + str (folderName) + ' | grep -v tempo | grep -v limit | grep -v submit | grep txt')[1].split ('\n'):
+    for elem in getstatusoutput ('ls ' + str (folderName) + ' | grep -v tempo | grep -v .mu | grep -v submit | grep txt')[1].split ('\n'):
         listOfDatacards.append (currentFolder + '/' + folderName + '/' + str (elem))
 
     for datacard in listOfDatacards :

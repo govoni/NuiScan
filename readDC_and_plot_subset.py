@@ -47,6 +47,8 @@ def lookAtSystematics (datacardname) :
     # ---- ---- ---- ---- ---- ---- ---- ----
 
     print 'Opening original input datacard: ', datacardname
+    nametag = datacardname.split ('/')[-1].replace ('.txt', '')
+    thepath = datacardname.replace (nametag + '.txt', '')
 
     Results = {}
     syslist = []
@@ -72,8 +74,8 @@ def lookAtSystematics (datacardname) :
     Results["STATISTICAL"] = statsLimit
 
     print "**********************************"
-    for kind,value in Results :
-        print " > ",kind," = ",value
+    for kind in Results :
+        print " > ",kind," = ",Results[kind]
     print "**********************************"
 
 # ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
